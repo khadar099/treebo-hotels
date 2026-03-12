@@ -2,11 +2,17 @@
 
 
 **1. We noticed alerts from Grafana and Prometheus indicating Booking Service errors and high latency, while customer complaints started coming in.”
+
 2. I first checked EKS pod status and logs in Kibana to identify the source of the failures. It looked like the Booking Service pods were crashing due to memory exhaustion and database connection timeouts.
+
 3. To quickly restore service, I scaled the Booking Service deployment and restarted pods while ensuring the EKS cluster had enough nodes via Cluster Autoscaler
+
 4. After stabilizing the service, I reviewed Prometheus metrics and Kibana logs. We identified that a recent deployment caused higher memory usage, and DB queries were taking longer than expected, causing pods to crash
+
 5. After stabilizing the service, I reviewed Prometheus metrics and Kibana logs. We identified that a recent deployment caused higher memory usage, and DB queries were taking longer than expected, causing pods to crash
+
 6. We optimized queries, adjusted pod resource limits, tuned HPA and Cluster Autoscaler, and set up stricter alert thresholds to prevent recurrence.”
+
 7. We conducted a postmortem, documented the incident, shared learnings with the team, and added resource and stress tests in CI/CD to avoid similar outages.**
 
 
