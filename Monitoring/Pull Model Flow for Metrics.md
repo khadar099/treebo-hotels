@@ -43,7 +43,13 @@ MICROSERVICES (Booking, Payment, Inventory, etc.)
 
    
 +-------------------+
-| Prometheus Server |  <-- Scrapes metrics at regular intervals
+
+
+| Prometheus Server |  
+
+<-- Scrapes metrics at regular intervals
+
+
 +-------------------+
 
 
