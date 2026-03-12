@@ -1,4 +1,4 @@
-Pull Model Flow for Metrics
+**Pull Model Flow for Metrics**
 
 In the pull model:
 
