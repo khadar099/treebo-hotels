@@ -37,11 +37,13 @@ Request latency and error rates
 MICROSERVICES (Booking, Payment, Inventory, etc.)
    | expose /metrics
    v
+   
 +-------------------+
 | Prometheus Server |  <-- Scrapes metrics at regular intervals
 +-------------------+
    |
    v
+   
 +-------------------+
 | Grafana           |  <-- Queries Prometheus via PromQL and visualizes dashboards
 +-------------------+
