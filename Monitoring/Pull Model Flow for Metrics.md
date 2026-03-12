@@ -34,32 +34,8 @@ Request latency and error rates
 
 **Pull Model Diagram (Text Version)**
 
-MICROSERVICES (Booking, Payment, Inventory, etc.)
+<img width="526" height="167" alt="image" src="https://github.com/user-attachments/assets/5a835482-6140-412c-b1da-b5a6e8169fdd" />
 
-
-       | expose /metrics
-       
-       v
-
-   
-+-------------------+
-
-
-| Prometheus Server |  
-
-<-- Scrapes metrics at regular intervals
-
-
-+-------------------+
-
-
-      |
-      v
-
-    
-+-------------------+
-| Grafana           |  <-- Queries Prometheus via PromQL and visualizes dashboards
-+-------------------+
 
 
 
