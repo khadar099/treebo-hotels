@@ -1,12 +1,12 @@
-Step-by-Step Approach to Handling a Critical Incident
+**Step-by-Step Approach to Handling a Critical Incident**
 
-Let’s assume a realistic scenario in your EKS + microservices + CI/CD + DevSecOps environment:
+scenario in  EKS + microservices + CI/CD + DevSecOps environment:
 
 One of our hotel booking microservices went down in production, causing some users to fail bookings.
 
-Step 1 – Detection & Alerting
+**Step 1 – Detection & Alerting**
 
-How it started:
+**How it started:**
 
 Alerts triggered from Grafana dashboards (high error rate, HTTP 500s from Booking Service)
 
