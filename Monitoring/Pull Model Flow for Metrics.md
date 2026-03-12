@@ -35,12 +35,16 @@ Request latency and error rates
 **Pull Model Diagram (Text Version)**
 
 MICROSERVICES (Booking, Payment, Inventory, etc.)
+
+
    | expose /metrics
    v
    
 +-------------------+
 | Prometheus Server |  <-- Scrapes metrics at regular intervals
 +-------------------+
+
+
    |
    v
    
