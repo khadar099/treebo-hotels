@@ -20,16 +20,16 @@ Prometheus showed CPU spike and latency increase
 
 **Step 2 – Initial Assessment**
 
-Check logs and metrics immediately:
+Checked logs and metrics immediately:
 
-Access Kibana to look at Booking Service logs (via Filebeat → Elasticsearch)
+Accessed Kibana to look at Booking Service logs (via Filebeat → Elasticsearch)
 
-Check Pod status in EKS:
+Checked Pod status in EKS:
 
 kubectl get pods -n prod
 kubectl describe pod booking-service-xyz -n prod
 
-Identify symptoms:
+**Identify symptoms:**
 
 Pods in CrashLoopBackOff
 
@@ -39,7 +39,7 @@ Errors connecting to SQL DB
 
 **Interview phrasing:**
 
-“I first checked EKS pod status and logs in Kibana to identify the source of the failures. It looked like the Booking Service pods were crashing due to memory exhaustion and database connection timeouts.”
+**“I first checked EKS pod status and logs in Kibana to identify the source of the failures. It looked like the Booking Service pods were crashing due to memory exhaustion and database connection timeouts.”**
 
 **Step 3 – Immediate Mitigation**
 
@@ -57,7 +57,7 @@ Enable temporary node autoscaling if cluster nodes are insufficient (Cluster Aut
 
 **Interview phrasing:**
 
-“To quickly restore service, I scaled the Booking Service deployment and restarted pods while ensuring the EKS cluster had enough nodes via Cluster Autoscaler.”
+**“To quickly restore service, I scaled the Booking Service deployment and restarted pods while ensuring the EKS cluster had enough nodes via Cluster Autoscaler.”**
 
 **Step 4 – Root Cause Analysis (Post-Incident)**
 
@@ -75,7 +75,7 @@ Some SQL queries were slow → connection pool exhaustion
 
 **Interview phrasing:**
 
-“After stabilizing the service, I reviewed Prometheus metrics and Kibana logs. We identified that a recent deployment caused higher memory usage, and DB queries were taking longer than expected, causing pods to crash.”
+**“After stabilizing the service, I reviewed Prometheus metrics and Kibana logs. We identified that a recent deployment caused higher memory usage, and DB queries were taking longer than expected, causing pods to crash.”**
 
 **Step 5 – Permanent Fix**
 
@@ -97,8 +97,8 @@ CPU/memory thresholds, error rate alerts
 
 **Interview phrasing:**
 
-“We optimized queries, adjusted pod resource limits, tuned HPA and Cluster Autoscaler, and set up stricter alert thresholds to prevent recurrence.”
-
+**“We optimized queries, adjusted pod resource limits, tuned HPA and Cluster Autoscaler, and set up stricter alert thresholds to prevent recurrence.”
+**
 **Step 6 – Postmortem & Learnings**
 
 Document incident: timeline, root cause, resolution
@@ -109,7 +109,7 @@ Improve CI/CD pipeline: add stress tests or memory checks
 
 **Interview phrasing:**
 
-“We conducted a postmortem, documented the incident, shared learnings with the team, and added resource and stress tests in CI/CD to avoid similar outages.”
+**“We conducted a postmortem, documented the incident, shared learnings with the team, and added resource and stress tests in CI/CD to avoid similar outages.”**
 
 **✅ Key Points to Emphasize in Interview**
 
