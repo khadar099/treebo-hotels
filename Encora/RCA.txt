@@ -1,0 +1,24 @@
+# 🧠 Root Cause Analysis (RCA) – Transaction Failure Incident
+
+## 📌 Overview
+This document outlines the Root Cause Analysis (RCA) for a **P1 incident** in a banking application where users experienced transaction failures due to backend API errors.
+
+---
+
+## ⚠️ Problem Statement
+
+- Users were unable to complete transactions
+- Backend APIs returned **HTTP 500 errors**
+- High impact on customer experience and business operations
+
+---
+
+## 🔍 Symptoms Observed
+
+### 📊 Metrics (Prometheus + Grafana)
+- Sudden spike in **API error rate**
+- Increased **response latency**
+- Database connections reaching maximum limit
+
+### 📜 Logs (ELK Stack)
+Repeated error messages observed in Kibana:
