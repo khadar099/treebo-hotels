@@ -1,0 +1,162 @@
+Linux Commands for SRE / Application Support
+🔥 1. top – Real-time System Monitoring
+📌 What it does:
+
+Shows CPU, memory usage, running processes in real time.
+
+▶️ Command:
+top
+📊 What to look for:
+%CPU → high usage → CPU bottleneck
+%MEM → memory consumption
+load average → system load
+💡 Example Scenario:
+
+Application is slow → run top → see Java process using 95% CPU
+
+🚀 2. htop – Better version of top
+📌 What it does:
+
+Interactive process viewer (more readable than top)
+
+▶️ Command:
+htop
+🎯 Features:
+Color-coded output
+Easy process kill (F9)
+Filter/search
+💡 Example:
+
+Quickly identify which service is consuming memory
+
+🧾 3. ps -ef – Process Snapshot
+📌 What it does:
+
+Shows all running processes
+
+▶️ Command:
+ps -ef
+🔍 With filter:
+ps -ef | grep java
+💡 Example:
+
+Check if your application is running:
+
+ps -ef | grep tomcat
+🌐 4. netstat -tulnp – Network Connections
+📌 What it does:
+
+Shows open ports + services listening
+
+▶️ Command:
+netstat -tulnp
+🧠 Breakdown:
+t → TCP
+u → UDP
+l → listening
+n → numeric
+p → process
+💡 Example:
+
+Check if app is running on port 8080:
+
+netstat -tulnp | grep 8080
+💽 5. df -h – Disk Space
+📌 What it does:
+
+Shows disk usage
+
+▶️ Command:
+df -h
+📊 Output:
+Use% → important
+💡 Example:
+
+If disk is 100%, app may crash or logs stop writing
+
+📁 6. du -sh – Folder Size
+📌 What it does:
+
+Checks size of directories
+
+▶️ Command:
+du -sh *
+💡 Example:
+
+Find which folder is consuming space:
+
+du -sh /var/log/*
+🔎 7. grep – Search Inside Files
+📌 What it does:
+
+Search for patterns in logs/files
+
+▶️ Basic:
+grep "ERROR" logs.txt
+▶️ Ignore case:
+grep -i "error" logs.txt
+▶️ With line numbers:
+grep -n "Exception" logs.txt
+💡 Example:
+
+Find errors in application logs
+
+📜 8. tail -f – Live Log Monitoring
+📌 What it does:
+
+Shows real-time log updates
+
+▶️ Command:
+tail -f logs.txt
+▶️ Last 100 lines:
+tail -100 logs.txt
+💡 Example:
+
+Monitor logs during incident
+
+🔥 💡 Powerful Real-World Combos (VERY IMPORTANT)
+
+These impress interviewers 👇
+
+🔗 1. Find Errors in Real-Time
+tail -f app.log | grep ERROR
+
+👉 Shows only error logs live
+
+🔗 2. Check Process + Kill It
+ps -ef | grep java
+kill -9 <PID>
+🔗 3. Find Port Usage
+netstat -tulnp | grep 8080
+🔗 4. Debug High CPU
+top
+
+Then:
+
+ps -ef | grep <PID>
+🚨 Interview Question You WILL Get
+❓ “How do you troubleshoot a slow application?”
+
+👉 Answer using these commands:
+
+First, I check system health using top or htop to see CPU and memory usage.
+Then I verify the application process using ps -ef.
+I check disk space using df -h and analyze logs using tail -f and grep.
+If needed, I check network ports using netstat.
+
+⚡ Quick Revision Table
+Problem	Command
+High CPU	top, htop
+Process check	ps -ef
+Port issue	netstat -tulnp
+Disk full	df -h
+Folder size	du -sh
+Log errors	grep
+Live logs	tail -f
+🚀 Final Tip
+
+Say this in interview:
+
+“I usually combine Linux commands with monitoring tools to quickly identify and resolve production issues.”
+
+👉 This shows SRE maturity
