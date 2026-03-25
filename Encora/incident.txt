@@ -1,0 +1,82 @@
+We encountered a P1 major incident where users were unable to complete transactions — the application was returning intermittent 500 errors.
+
+🔍 What the Issue Was
+
+The issue initially appeared as increased API failures and latency.
+
+In Grafana dashboards, I noticed:
+Sudden spike in API error rate
+Increase in response time (latency)
+In Prometheus metrics:
+High number of active DB connections
+Saturation indicators increasing
+🔎 What You Did (Step-by-Step Investigation)
+
+I started correlating metrics with logs to identify the root cause.
+
+1. Metrics Analysis (Grafana + Prometheus)
+Observed:
+Increased latency
+Spike in errors
+DB connection usage near max limit
+2. Log Analysis (ELK Stack)
+Checked logs in Elasticsearch/Kibana
+Found repeated errors like:
+“Connection timeout”
+“Unable to acquire JDBC connection”
+3. System Validation
+Verified:
+CPU → Normal
+Memory → Normal
+Network → No issue
+
+👉 So problem was not infrastructure, but application/DB layer
+
+4. Identified Root Cause
+
+After deeper analysis, I found that a recent deployment introduced a database connection leak, where connections were not being properly closed.
+
+This caused:
+Connection pool exhaustion
+New requests failing → 500 errors
+🛠️ How You Resolved It
+
+I focused first on restoring service, then fixing the issue.
+
+Immediate Mitigation:
+Restarted application pods/services
+This released stuck DB connections
+System stabilized temporarily
+
+Permanent Fix:
+Coordinated with dev team
+Fixed code to properly close DB connections
+Optimized connection pool configuration
+🔁 Prevention & Improvements
+
+After resolving the issue, I worked on preventing recurrence.
+
+Added Grafana alerts for:
+DB connection thresholds
+Error rate spikes
+Improved logging in ELK for faster detection
+Created dashboards for:
+Connection pool monitoring
+API latency tracking
+Suggested code best practices for resource handling
+🎯 Final Impact Statement
+
+This improved system observability and reduced similar incidents, helping us detect and resolve issues much faster in the future.
+
+
+
+
+
+
+Short Crisp Version (If They Interrupt You)
+
+We had a P1 incident where transactions were failing due to 500 errors.
+Using Grafana and Prometheus, I identified high DB connection usage, and through ELK logs, I found connection timeout errors.
+The root cause was a connection leak introduced in a recent deployment.
+I mitigated it by restarting services and worked with the dev team to fix the issue permanently.
+We then added alerts and dashboards to prevent recurrence.
