@@ -1,0 +1,77 @@
+Core Idea
+DevOps: A cultural and organizational approach to unify development and operations teams
+SRE: A role/discipline (popularized by Google) that applies software engineering to operations problems
+⚙️ Key Differences
+1. 📌 Philosophy vs Role
+DevOps
+Mindset + practices
+Focus: collaboration, automation, CI/CD
+SRE
+A concrete job role/team
+Focus: reliability, uptime, performance
+
+👉 DevOps = “how teams should work”
+👉 SRE = “engineers who ensure systems stay reliable”
+
+2. 🎯 Primary Goals
+DevOps
+Faster releases
+Better collaboration
+Continuous delivery
+SRE
+System reliability (SLAs, SLOs, SLIs)
+Minimize downtime
+Manage incidents
+3. 📊 Metrics & Focus
+DevOps metrics
+Deployment frequency
+Lead time for changes
+Change failure rate
+SRE metrics
+SLO (Service Level Objective)
+SLI (Service Level Indicator)
+Error budgets
+
+👉 SRE is much more data-driven about reliability
+
+4. 🔁 Approach to Failures
+DevOps
+“Fail fast, fix fast”
+SRE
+“Prevent failure, and control risk using error budgets”
+5. 🛠️ Skillset
+DevOps Engineer
+CI/CD tools (Jenkins, GitHub Actions)
+Infrastructure as Code (Terraform)
+Containers (Docker, Kubernetes)
+SRE
+Strong coding (Python, Go, Java)
+Distributed systems knowledge
+Monitoring & observability
+Incident response
+
+👉 SREs are usually more software-engineering-heavy
+
+6. 🧯 Operations Work
+DevOps
+Shared responsibility across teams
+SRE
+Limits manual ops work (often ≤ 50%)
+Automates everything possible
+🧠 Simple Analogy
+DevOps = Rules of a well-run kitchen 🍳
+SRE = The chef who ensures food quality never drops
+🏁 When to Choose What?
+If you're building a team/process → DevOps mindset
+If you're hiring a reliability-focused engineer → SRE role
+Many companies today do both together
+💡 Bottom Line
+DevOps is broad and cultural
+SRE is specific and engineering-driven
+SRE is often considered a subset or implementation of DevOps
+
+If you want, I can also tell you:
+
+which role is better for your career right now 💼
+salary comparison in India
+or a roadmap to switch into SRE or DevOps
